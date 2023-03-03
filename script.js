@@ -32,6 +32,7 @@ var apprenant = {
 // console.log(apprenant.clog); // on accède à la valeur de l'attribut de l'objet
 apprenant.clog(); // attribut de type fonction
 console.log(apprenant["age de l'apprenant"]);
+console.log(apprenant["prenom"]);
 // une fonction avec le mot clé function est accessible depuis l'extérieur de l'objet tandis qu'une fonction fléchée est cantonnée à l'intérieur de l'objet
 
 // https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Working_with_Objects
@@ -41,7 +42,7 @@ console.log(apprenant["age de l'apprenant"]);
 // exercice 1 pour chaque console le titre lannée et la console
 // une instance de l'objet jeu
 
-
+const results = document.querySelector('.results');
 // cette fonction est le constructeur
 function Jeux(titre, annee, console) {
     this.titre = titre,
@@ -61,28 +62,10 @@ function Jeux(titre, annee, console) {
   let jeu9 = new Jeux("Super Mario World 2: Yoshi's Island", 1995, "SNES");
   let jeu10 = new Jeux("Super Mario 64", 1996, "Nintendo 64");
 
+
+console.log(jeu1["titre"]);
   
 // exercice 2 créer un objet collection qui contient toutes les instances
-
-// for (let index = 1; index < 11; index++){
-//     let collection = {
-//         `attribut${[index]}:jeu${[index]}`
-//     }
-// }
-
-// console.log(collection);
-
-
-
-// //méthode anne-sophie
-// problème transfert les propriétés ainsiq ue leurs valeurs sans le contenant qui est l'objet
-// let maCollection = new Object;
-// maCollection = Object.assign({}, jeu1, jeu2);
-
-// //david
-// let marioCollection = { ...{jeu1}, ...{jeu2}, ...{jeu3}
-// };
-// console.log(marioCollection);
 
 // lisa
 let maCollection = {...{jeu1}, ...{jeu2}, ...{jeu3},...{jeu4}, ...{jeu5}, ...{jeu6}, ...{jeu7}, ...{jeu8}, ...{jeu9}, ...{jeu10}};
@@ -100,3 +83,44 @@ for (const key in maCollection)
 // il y aura donc 10 div
 //utiliser la méthode map
 
+// Object.values(maCollection).map(
+//   (jeu) => {
+//       console.log(jeu.console),
+//       console.log(jeu.titre),
+//       console.log(jeu.annee)
+//   }
+// )
+
+results.innerHTML = Object.values(maCollection).map( jeu =>`
+    <div class="card">
+        <h2>Titre : ${jeu.titre}</h2>
+        <h3>Console : ${jeu.console}</h3>
+        <h4>Année : ${jeu.annee}</h4>
+    </div>
+`).join("");
+
+// Object.values(maCollection).map( el => {console.log(el.titre);})
+// Object.values(maCollection).map( el => {console.log(el.annee);})
+// Object.values(maCollection).map( el => {console.log(el.console);})
+
+// console.log(maCollection);
+
+// console.log(maCollection["jeu1"]);
+
+// const arrMaCollection = Array.from(maCollection);
+// arrMaCollection.map(el => {console.log(el.Object)});
+
+// const arrMaCollection = Array.from(maCollection);
+// console.log(arrMaCollection.map(console.table(maCollection)));
+
+
+// console.table(arrMaCollection, ['console', 'titre','annee']);
+// console.log(arrMaCollection.map(console.log(maCollection[Jeux])));
+//document.write
+//innertext innerhtml
+// var tableauOrig = [{clé:1, valeur:10}, {clé:2, valeur:20}, {clé:3, valeur: 30}];
+// var tableauFormaté = tableauOrig.map(obj => {
+//   var rObj = {};
+//   rObj[obj.clé] = obj.valeur;
+//   return rObj;
+// });
