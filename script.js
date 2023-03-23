@@ -97,8 +97,12 @@ results.innerHTML = Object.values(maCollection).map( (jeu,index) =>`
 
 for (let index = 0; index < btnpop.length; index++) {
   console.log(btnpop[index]);
- btnpop[index].addEventListener('click', e => {console.log(btnpop[index].id)})// récupérer ID
+ btnpop[index].addEventListener('click', e => {
+  let key = e.target.id;
+  console.log(maCollection[key].titre);
+})// récupérer ID
 // btnpop[index].addEventListener('click', e => {console.log(maCollection[btnpop[index].id])})
+//classList.add
 };
 
 
