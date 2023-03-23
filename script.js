@@ -43,6 +43,7 @@ console.log(apprenant["prenom"]);
 // une instance de l'objet jeu
 
 const results = document.querySelector('.results');
+const btnpop = document.getElementsByClassName('popupjeu');
 // cette fonction est le constructeur
 function Jeux(titre, annee, console) {
     this.titre = titre,
@@ -83,44 +84,112 @@ for (const key in maCollection)
 // il y aura donc 10 div
 //utiliser la méthode map
 
-// Object.values(maCollection).map(
-//   (jeu) => {
-//       console.log(jeu.console),
-//       console.log(jeu.titre),
-//       console.log(jeu.annee)
-//   }
-// )
 
-results.innerHTML = Object.values(maCollection).map( jeu =>`
+
+results.innerHTML = Object.values(maCollection).map( (jeu,index) =>`
     <div class="card">
         <h2>Titre : ${jeu.titre}</h2>
         <h3>Console : ${jeu.console}</h3>
         <h4>Année : ${jeu.annee}</h4>
+       <button id="${"jeu"+ ((index++)+1)}" class="popupjeu" >cliquez ici</button>
     </div>
 `).join("");
 
-// Object.values(maCollection).map( el => {console.log(el.titre);})
-// Object.values(maCollection).map( el => {console.log(el.annee);})
-// Object.values(maCollection).map( el => {console.log(el.console);})
-
-// console.log(maCollection);
-
-// console.log(maCollection["jeu1"]);
-
-// const arrMaCollection = Array.from(maCollection);
-// arrMaCollection.map(el => {console.log(el.Object)});
-
-// const arrMaCollection = Array.from(maCollection);
-// console.log(arrMaCollection.map(console.table(maCollection)));
+for (let index = 0; index < btnpop.length; index++) {
+  console.log(btnpop[index]);
+ btnpop[index].addEventListener('click', e => {console.log(btnpop[index].id)})// récupérer ID
+// btnpop[index].addEventListener('click', e => {console.log(maCollection[btnpop[index].id])})
+};
 
 
-// console.table(arrMaCollection, ['console', 'titre','annee']);
-// console.log(arrMaCollection.map(console.log(maCollection[Jeux])));
-//document.write
-//innertext innerhtml
-// var tableauOrig = [{clé:1, valeur:10}, {clé:2, valeur:20}, {clé:3, valeur: 30}];
-// var tableauFormaté = tableauOrig.map(obj => {
-//   var rObj = {};
-//   rObj[obj.clé] = obj.valeur;
-//   return rObj;
-// });
+
+
+// Object.values pour avoir les values de l'objet de l'Object
+// map pour parcourir les éléments un à un d'un objet
+// entre () de map on a ce qu'on va afficher
+// join pour enlever le , entre les div
+// innerHTML pour afficher sur la page html
+
+// suite de l'énoncé
+//faire les popup pour chaques jeu de votre ta&bleau de jeux avec une description du jeu pour
+// chaque popup qui decris le jeu en question 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//autre exercice
+
+// var courses = {
+//     "fruits": [
+//       { "kiwis": 3,
+//         "mangues": 4,
+//         "pommes": null
+//       },
+//       { "panier": true },
+//     ],
+//     "legumes":
+//       { "patates": "amandine",
+//         "figues": "de barbarie",
+//         "poireaux": false
+//       }
+//    };
+
+//    let exempleArray = ['A','B','C'];
+//    console.log(exempleArray); // affiche le tableau
+
+// // affichage de chaque élément du tableau de façon successives
+//    for (let k=0;k<exempleArray.length;k++){
+//    console.log(exempleArray[k]); 
+//   };
+
+
+// let monArray = [0,1,2,3];
+// a = monArray.push(4); // méthode push qui permet de rajouter à la fin du tableau ici 4
+// console.log(a); // renvoie la taille du tableau
+// console.log(monArray); // affiche le tableau
+
+// monArray.push(5,6); // pour push 5 et 6 en même temps dans le tableau
+// console.log(monArray);
+
+// monArray.push(monArray[monArray.length-1] + monArray[monArray.length-2]); // ne fonctionne pas mais code juste
+// console.log(monArray);
+
+// let fibo = [0,1,1];
+
+// for (let l = 1 ; fibo[l+1] < 50; l++ ){
+//  // fibo[l]  = fibo.push(fibo[fibo.length-1]+fibo[fibo.length-2]);
+//   fibo.push(fibo[l]+fibo[l+1]);
+//   console.log(fibo);
+// };
+
+
+
+
