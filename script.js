@@ -45,23 +45,24 @@ console.log(apprenant["prenom"]);
 const results = document.querySelector('.results');
 const btnpop = document.getElementsByClassName('popupjeu');
 // cette fonction est le constructeur
-function Jeux(titre, annee, console) {
+function Jeux(titre, annee, console, description) {
     this.titre = titre,
     this.annee = annee,
     this.console = console
+    this.description = description
   };
 
 // créer 10 instances de l'objet Jeux
-  let jeu1 = new Jeux("Super Mario Bros", 1985, "NES");
-  let jeu2 = new Jeux("Super Mario Bros 2", 1987, "NES");
-  let jeu3 = new Jeux("Super Mario Bros 3", 1988, "NES");
-  let jeu4 = new Jeux("Super Mario Land", 1989, "Game Boy");
-  let jeu5 = new Jeux("Super Mario World", 1990, "SNES");
-  let jeu6 = new Jeux("Super Mario Land 2: 6 golden coins", 1992, "Game Boy");
-  let jeu7 = new Jeux("Super Mario All-Stars", 1993, "SNES");
-  let jeu8 = new Jeux("Wario Land: Super Mario Land 3", 1994, "Game Boy");
-  let jeu9 = new Jeux("Super Mario World 2: Yoshi's Island", 1995, "SNES");
-  let jeu10 = new Jeux("Super Mario 64", 1996, "Nintendo 64");
+  let jeu1 = new Jeux("Super Mario Bros", 1985, "NES","Super Mario Bros. (スーパーマリオブラザーズ, Sūpā Mario Burazāzu?) est un jeu vidéo de plates-formes à défilement horizontal développé par Nintendo R&D4 et édité par Nintendo. Il est sorti sur Famicom au Japon en 1985 puis sur Nintendo Entertainment System en Amérique du Nord la même année et en 1987 en Europe. Il s'agit du premier jeu de la série Super Mario. ");
+  let jeu2 = new Jeux("Super Mario Bros 2", 1987, "NES","Super Mario Bros. 2 (ou Super Mario USA au Japon) est un jeu vidéo de plates-formes développé par Nintendo R&D4 et édité par Nintendo. Il sort sur Nintendo Entertainment System en 1988 en Amérique du Nord, en 1989 en Europe puis en 1992 au Japon. ");
+  let jeu3 = new Jeux("Super Mario Bros 3", 1988, "NES","Super Mario Bros. 3 (スーパーマリオブラザーズ3, Sūpā Mario Burazāzu Surī?) est un jeu vidéo de plates-formes développé et édité par Nintendo sur Nintendo Entertainment System. Il s'agit du troisième volet de la série Super Mario et il est commercialisé en 1988 au Japon, en 1990 aux États-Unis et en 1991 en Europe. Le développement est pris en charge par Nintendo Entertainment Analysis & Development sous la houlette de Shigeru Miyamoto, qui dirige le jeu avec Takashi Tezuka et Hiroshi Yamauchi. ");
+  let jeu4 = new Jeux("Super Mario Land", 1989, "Game Boy","Super Mario Land (スーパーマリオランド, Sūpā Mario Rando?) est un jeu vidéo de plates-formes développé puis édité par Nintendo pour le Game Boy. Il s'agit du premier jeu de plates-formes et du premier Super Mario sorti sur cette console. Le jeu sort en 1989 au Japon et aux États-Unis, puis en France en septembre 1990. Ce jeu fait partie des titres de lancement de la Game Boy. ");
+  let jeu5 = new Jeux("Super Mario World", 1990, "SNES","Super Mario World (スーパーマリオワールド, Sūpā Mario Wārudo?), sous-titré Super Mario Bros. 4 au Japon4, est un jeu vidéo de plates-formes développé et édité par Nintendo sur Super Nintendo. Le développement a été assuré par la division Nintendo EAD, dirigée par Shigeru Miyamoto ; ce dernier a réalisé le jeu aux côtés de Takashi Tezuka.");
+  let jeu6 = new Jeux("Super Mario Land 2: 6 golden coins", 1992, "Game Boy","Super Mario Land 2: 6 Golden Coins est un jeu vidéo de plates-formes sorti en 1992 sur Game Boy, développé et édité par Nintendo. C'est le deuxième jeu de la série Super Mario à sortir sur Game Boy après Super Mario Land en 1989 dont il est la suite. Le jeu marque la première apparition du personnage Wario, double maléfique de Mario. ");
+  let jeu7 = new Jeux("Super Mario All-Stars", 1993, "SNES","Super Mario All-Stars (スーパーマリオコレクション, Sūpā Mario Korekushon?, litt. Super Mario Collection) est un jeu vidéo de plate-formes développé par Nintendo EAD et édité par Nintendo. Il est sorti en 1993 sur Super Nintendo. Il s'agit d'une compilation qui contient un remake des quatre premiers jeux en deux dimensions de la série Super Mario. ");
+  let jeu8 = new Jeux("Wario Land: Super Mario Land 3", 1994, "Game Boy","Wario Land: Super Mario Land 3 est un jeu vidéo de plates-formes sorti en 1994 sur Game Boy. Le jeu a été développé et édité par Nintendo. Wario Land est le troisième jeu de la série Super Mario Land. Pour cet épisode, Wario vole la vedette à Mario. ");
+  let jeu9 = new Jeux("Super Mario World 2: Yoshi's Island", 1995, "SNES","Super Mario World 2: Yoshi's Island (スーパーマリオ ヨッシーアイランド ou Yoshi's Island (ou encore Yoshi's Island: Super Mario Advance 3 pour la version Game Boy Advance) est un jeu de plate-forme de Nintendo sorti en 1995 sur Super Nintendo, puis en 2002 sur Game Boy Advance. Il a été réédité sur Nintendo Switch en 2019. ");
+  let jeu10 = new Jeux("Super Mario 64", 1996, "Nintendo 64","Super Mario 64 (スーパーマリオ64, Sūpā Mario Rokujūyon?) est un jeu de plates-formes développé par le studio japonais Nintendo Entertainment Analysis and Development sous la direction de Shigeru Miyamoto et publié par Nintendo pour la Nintendo 64. Il sort au Japon et aux États-Unis en 1996 puis en Europe et en Australie en 1997. Épisode de la série Super Mario, il est un des jeux disponibles au lancement de la console5. ");
 
 
 console.log(jeu1["titre"]);
@@ -98,9 +99,27 @@ results.innerHTML = Object.values(maCollection).map( (jeu,index) =>`
 for (let index = 0; index < btnpop.length; index++) {
   console.log(btnpop[index]);
  btnpop[index].addEventListener('click', e => {
-  let key = e.target.id;
-  console.log(maCollection[key].titre);
-})// récupérer ID
+  let creation_div = document.createElement("div");  // création de div
+  document.body.append(creation_div); // et l'ajouter dans le body
+  creation_div.classList.add(btnpop[index].id) // récupérer ID et créer la classe qui porte le nom de l'ID
+ 
+ 
+  let key = e.target.id; // récupère l'ID que l'on stocke dans key
+ // console.log(maCollection[key]); // affiche l'objet
+ // console.log(maCollection[key].titre); //récupère le titre
+ 
+ 
+ 
+  let image = document.createElement("img");
+  creation_div.append(image,maCollection[key].titre,maCollection[key].console,maCollection[key].annee,maCollection[key].description);
+  image.setAttribute("src", `img/image${[index+1]}`);
+ 
+
+
+ // creation_div.innerHTML = maCollection[key].titre
+
+
+})
 // btnpop[index].addEventListener('click', e => {console.log(maCollection[btnpop[index].id])})
 //classList.add
 };
