@@ -22,11 +22,11 @@
     visibility:hidden;
 } */
 
-div .jeu1{
+.jeu1,.jeu2 ,.jeu3, .jeu4 ,.jeu5, .jeu6, .jeu7, .jeu8 ,.jeu9, .jeu10{
     visibility:hidden;
 }
 
-div .jeu1:target{
+.jeu1:target, .jeu2:target, .jeu3:target ,.jeu4:target,.jeu5:target,.jeu6:target,.jeu7:target,.jeu8:target,.jeu9:target,.jeu10:target{
     visibility:visible;
     margin: 6rem auto;
     padding: 2rem;
@@ -34,4 +34,9 @@ div .jeu1:target{
     border-radius:5px;
     width:250px;
     position: relative;
+}
+
+img{
+    width:100px;
+    height:100px;
 }

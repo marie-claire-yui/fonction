@@ -87,7 +87,7 @@ results.innerHTML = Object.values(maCollection).map( (jeu,index) =>`
 `).join("");
 
 for (let index = 0; index < btnpop.length; index++) {
-  console.log(btnpop[index]);
+ // console.log(btnpop[index]);
  btnpop[index].addEventListener('click', e => {
   let creation_div = document.createElement("div");  // création de div
   document.body.append(creation_div); // et l'ajouter dans le body
@@ -96,7 +96,7 @@ for (let index = 0; index < btnpop.length; index++) {
   let creation_ancre = document.createElement("a");
   let key = e.target.id; // récupère l'ID que l'on stocke dans key
   let image = document.createElement("img");
-  image.setAttribute("src", `img/image${[index+1]}`);
+  image.setAttribute("src", `img/image${[index+1]}.jpg`);
   creation_div.append(image,maCollection[key].titre,maCollection[key].console,maCollection[key].annee,maCollection[key].description,creation_ancre);
   creation_div.setAttribute("id", "up");
 
