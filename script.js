@@ -77,22 +77,12 @@ for (const key in maCollection)
     console.log(maCollection[key]); //syntaxe obligatoire lorsque la clé est dynamique
 };
 
-// pour chaque objet de l' objet à l'intérieur de la collection
-// H2 nom de la console
-// H3 nom du jeu1
-// h4 nom de l'année
-// cette div doit être affichée dans l'html
-// il y aura donc 10 div
-//utiliser la méthode map
-
-
-
 results.innerHTML = Object.values(maCollection).map( (jeu,index) =>`
     <div class="card">
         <h2>Titre : ${jeu.titre}</h2>
         <h3>Console : ${jeu.console}</h3>
         <h4>Année : ${jeu.annee}</h4>
-       <button id="${"jeu"+ ((index++)+1)}" class="popupjeu" >cliquez ici</button>
+     <a href="#up" ><button id="${"jeu"+ ((index++)+1)}" class="popupjeu">cliquez ici</button></a>
     </div>
 `).join("");
 
@@ -102,26 +92,19 @@ for (let index = 0; index < btnpop.length; index++) {
   let creation_div = document.createElement("div");  // création de div
   document.body.append(creation_div); // et l'ajouter dans le body
   creation_div.classList.add(btnpop[index].id) // récupérer ID et créer la classe qui porte le nom de l'ID
- 
- 
+
+  let creation_ancre = document.createElement("a");
   let key = e.target.id; // récupère l'ID que l'on stocke dans key
- // console.log(maCollection[key]); // affiche l'objet
- // console.log(maCollection[key].titre); //récupère le titre
- 
- 
- 
   let image = document.createElement("img");
-  creation_div.append(image,maCollection[key].titre,maCollection[key].console,maCollection[key].annee,maCollection[key].description);
   image.setAttribute("src", `img/image${[index+1]}`);
+  creation_div.append(image,maCollection[key].titre,maCollection[key].console,maCollection[key].annee,maCollection[key].description,creation_ancre);
+  creation_div.setAttribute("id", "up");
+
+creation_ancre.setAttribute("href","#")
+creation_ancre.innerHTML = "&times;";
  
-
-
- // creation_div.innerHTML = maCollection[key].titre
-
-
 })
 // btnpop[index].addEventListener('click', e => {console.log(maCollection[btnpop[index].id])})
-//classList.add
 };
 
 

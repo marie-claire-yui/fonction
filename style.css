@@ -16,3 +16,22 @@
     border:solid 1px black;
     border-radius:5px;
 }
+
+
+/* .jeu1{
+    visibility:hidden;
+} */
+
+div .jeu1{
+    visibility:hidden;
+}
+
+div .jeu1:target{
+    visibility:visible;
+    margin: 6rem auto;
+    padding: 2rem;
+    background: blue;
+    border-radius:5px;
+    width:250px;
+    position: relative;
+}
