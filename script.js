@@ -43,7 +43,7 @@ console.log(apprenant["prenom"]);
 // une instance de l'objet jeu
 
 const results = document.querySelector('.results');
-const btnpop = document.getElementsByClassName('popupjeu');
+
 // cette fonction est le constructeur
 function Jeux(titre, annee, console, description) {
     this.titre = titre,
@@ -86,27 +86,36 @@ results.innerHTML = Object.values(maCollection).map( (jeu,index) =>`
     </div>
 `).join("");
 
+const btnpop = document.getElementsByClassName('popupjeu');
+let creation_div = document.createElement("div");  // création de div
+let image = document.createElement("img");
+let h2 = document.createElement("h2");
+let h3 = document.createElement("h3");
+let paragraphe = document.createElement("p");
+
+let creation_ancre = document.createElement("a");
+
+creation_div.append(image,h2,h3,paragraphe,creation_ancre);
+  document.body.append(creation_div); 
+
 for (let index = 0; index < btnpop.length; index++) {
- // console.log(btnpop[index]);
+ 
  btnpop[index].addEventListener('click', e => {
-  let creation_div = document.createElement("div");  // création de div
-  document.body.append(creation_div); // et l'ajouter dans le body
-  creation_div.classList.add(btnpop[index].id) // récupérer ID et créer la classe qui porte le nom de l'ID
-
-  let creation_ancre = document.createElement("a");
   let key = e.target.id; // récupère l'ID que l'on stocke dans key
-  let image = document.createElement("img");
-  image.setAttribute("src", `img/image${[index+1]}.jpg`);
- //creation_div.append(image,maCollection[key].titre,maCollection[key].console,maCollection[key].annee,maCollection[key].description,creation_ancre);
-  creation_div.innerHTML = image + maCollection[key].titre + maCollection[key].console + maCollection[key].annee + maCollection[key].description + creation_ancre;
-  creation_div.setAttribute("id", "up");
-
-creation_ancre.setAttribute("href","#")
+  image.setAttribute("src", `img/image${index+1}.jpg`);
+  console.log(image);
+  paragraphe.innerHTML = maCollection[key].description;
+  h2.innerHTML = maCollection[key].titre;
+  h3.innerHTML = maCollection[key].console;
+  
+ creation_div.setAttribute("id", "up");
+creation_ancre.setAttribute("href","#");
 creation_ancre.innerHTML = "&times;";
  
 // window.onclick = function(event) {
-//   if (event.target == jeu1) {
-//     jeu1.style.display = "none";
+//   console.log(event.target);
+//   if (event.target == popupjeu) {
+//    popupjeu.style.display = "none";
 //   }
 // }
 

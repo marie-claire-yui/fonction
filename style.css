@@ -17,16 +17,11 @@
     border-radius:5px;
 }
 
-
-/* .jeu1{
-    visibility:hidden;
-} */
-
-.jeu1,.jeu2 ,.jeu3, .jeu4 ,.jeu5, .jeu6, .jeu7, .jeu8 ,.jeu9, .jeu10{
+#up{
     visibility:hidden;
 }
- 
-.jeu1:target, .jeu2:target, .jeu3:target ,.jeu4:target,.jeu5:target,.jeu6:target,.jeu7:target,.jeu8:target,.jeu9:target,.jeu10:target{
+
+#up:target{
     visibility:visible;
     margin: 6rem auto;
     padding: 2rem;
@@ -37,6 +32,6 @@
 }
 
 img{
-    width:100px;
-    height:100px;
+    width:200px;
+    height:200px;
 }
