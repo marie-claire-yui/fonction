@@ -97,7 +97,8 @@ for (let index = 0; index < btnpop.length; index++) {
   let key = e.target.id; // récupère l'ID que l'on stocke dans key
   let image = document.createElement("img");
   image.setAttribute("src", `img/image${[index+1]}.jpg`);
-  creation_div.append(image,maCollection[key].titre,maCollection[key].console,maCollection[key].annee,maCollection[key].description,creation_ancre);
+ //creation_div.append(image,maCollection[key].titre,maCollection[key].console,maCollection[key].annee,maCollection[key].description,creation_ancre);
+  creation_div.innerHTML = image + maCollection[key].titre + maCollection[key].console + maCollection[key].annee + maCollection[key].description + creation_ancre;
   creation_div.setAttribute("id", "up");
 
 creation_ancre.setAttribute("href","#")
