@@ -103,6 +103,13 @@ for (let index = 0; index < btnpop.length; index++) {
 creation_ancre.setAttribute("href","#")
 creation_ancre.innerHTML = "&times;";
  
+// window.onclick = function(event) {
+//   if (event.target == jeu1) {
+//     jeu1.style.display = "none";
+//   }
+// }
+
+
 })
 // btnpop[index].addEventListener('click', e => {console.log(maCollection[btnpop[index].id])})
 };
@@ -123,6 +130,7 @@ creation_ancre.innerHTML = "&times;";
 
 
 
+//pb: pop up qui s'ouvre mais même quand on le referme --> reouvre toujours la première popup qui a été ouvert même quandon clique sur un autre titre
 
 
 
