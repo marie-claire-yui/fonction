@@ -15,10 +15,13 @@
 .card{
     border:solid 1px black;
     border-radius:5px;
+    /* background-color: aqua; */
+    background-image: url(img/supermario1.jpg);
 }
 
 #up{
     visibility:hidden;
+    /* display:none; */
 }
 
 #up:target{
@@ -29,6 +32,10 @@
     border-radius:5px;
     width:250px;
     position: relative;
+    /* display:block; */
+    transform: translate(-50%,-50%);
+    /* -ms-transform: translate(-50%,-50%); */
+ 
 }
 
 img{

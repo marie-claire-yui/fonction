@@ -97,6 +97,8 @@ let creation_ancre = document.createElement("a");
 
 creation_div.append(image,h2,h3,paragraphe,creation_ancre);
   document.body.append(creation_div); 
+  results.append(creation_div);
+
 
 for (let index = 0; index < btnpop.length; index++) {
  
@@ -115,7 +117,7 @@ creation_ancre.innerHTML = "&times;";
 // window.onclick = function(event) {
 //   console.log(event.target);
 //   if (event.target == popupjeu) {
-//    popupjeu.style.display = "none";
+//   up.style.display = "none";
 //   }
 // }
 
